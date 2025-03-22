@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Server = require('../models/Server');
+const Role = require('../models/Role');
 
 // JWT token oluşturma
 const generateToken = (user) => {
