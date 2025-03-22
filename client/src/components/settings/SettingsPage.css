@@ -1,0 +1,249 @@
+.settings-container {
+  display: flex;
+  height: 100%;
+  color: var(--text-color);
+}
+
+.settings-sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid var(--border-color);
+}
+
+.settings-sidebar h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+}
+
+.settings-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-sidebar li {
+  padding: 12px 15px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.settings-sidebar li:hover {
+  background-color: var(--hover-bg);
+}
+
+.settings-sidebar li.active {
+  background-color: var(--accent-color);
+  color: var(--active-text-color);
+}
+
+.settings-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.settings-panel h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.settings-group {
+  margin-bottom: 30px;
+}
+
+.settings-group h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.settings-field {
+  margin-bottom: 20px;
+}
+
+.settings-field label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.settings-field select,
+.settings-field input[type="text"],
+.settings-field input[type="number"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.settings-field input[type="range"] {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 5px;
+}
+
+.checkbox-field label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.checkbox-field input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.theme-selector {
+  display: flex;
+  gap: 20px;
+}
+
+.theme-option {
+  cursor: pointer;
+  text-align: center;
+}
+
+.theme-preview {
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.theme-preview.dark {
+  background-color: #2c2f33;
+  border-color: #23272a;
+}
+
+.theme-preview.light {
+  background-color: #f2f3f5;
+  border-color: #e3e5e8;
+}
+
+.theme-option.active .theme-preview {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px rgba(114, 137, 218, 0.5);
+}
+
+.device-selector {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.device-selector select {
+  flex: 1;
+}
+
+.test-button {
+  padding: 10px 15px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.test-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.test-button.testing {
+  background-color: var(--danger-color);
+}
+
+.test-button.testing:hover {
+  background-color: var(--danger-hover);
+}
+
+.reset-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: var(--danger-hover);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+/* Karanlık tema için değişkenler */
+:root[data-theme='dark'] {
+  --sidebar-bg: #2f3136;
+  --heading-color: #ffffff;
+  --text-color: #dcddde;
+  --text-muted: #72767d;
+  --border-color: #40444b;
+  --input-bg: #40444b;
+  --hover-bg: #36393f;
+  --accent-color: #7289da;
+  --accent-hover: #677bc4;
+  --active-text-color: #ffffff;
+  --danger-color: #ed4245;
+  --danger-hover: #c03537;
+}
+
+/* Aydınlık tema için değişkenler */
+:root[data-theme='light'] {
+  --sidebar-bg: #f2f3f5;
+  --heading-color: #060607;
+  --text-color: #2e3338;
+  --text-muted: #747f8d;
+  --border-color: #d4d7dc;
+  --input-bg: #ffffff;
+  --hover-bg: #e3e5e8;
+  --accent-color: #7289da;
+  --accent-hover: #677bc4;
+  --active-text-color: #ffffff;
+  --danger-color: #ed4245;
+  --danger-hover: #c03537;
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+  .settings-container {
+    flex-direction: column;
+  }
+  
+  .settings-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .theme-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+}
